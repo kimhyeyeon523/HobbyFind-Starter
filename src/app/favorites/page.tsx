@@ -1,12 +1,12 @@
-import { HomePage } from '@/features/hobbyfind/components/home-page';
+import { FavoritesPage } from '@/features/favorites/components/favorites-page';
 import { Suspense } from 'react';
 
-type RootPageProps = {
+type FavoritesRouteProps = {
   params: Promise<Record<string, never>>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
-export default async function Page({ params, searchParams }: RootPageProps) {
+export default async function Page({ params, searchParams }: FavoritesRouteProps) {
   await params;
   await searchParams;
   return (
@@ -19,7 +19,8 @@ export default async function Page({ params, searchParams }: RootPageProps) {
         </div>
       }
     >
-      <HomePage />
+      <FavoritesPage />
     </Suspense>
   );
 }
+

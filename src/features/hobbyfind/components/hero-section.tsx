@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
+import type { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
 type HeroSectionProps = {
@@ -9,6 +10,7 @@ type HeroSectionProps = {
   align?: 'center' | 'left';
   className?: string;
   fadeInOnMount?: boolean;
+  children?: ReactNode;
 };
 
 export function HeroSection({
@@ -17,6 +19,7 @@ export function HeroSection({
   align = 'center',
   className,
   fadeInOnMount = false,
+  children,
 }: HeroSectionProps) {
   const reduceMotion = useReducedMotion();
 
@@ -44,6 +47,17 @@ export function HeroSection({
       >
         {subtitle}
       </p>
+      {children ? (
+        <div
+          className={cn(
+            'mt-8',
+            align === 'center' && 'mx-auto max-w-xl',
+            align === 'left' && 'max-w-xl',
+          )}
+        >
+          {children}
+        </div>
+      ) : null}
     </div>
   );
 

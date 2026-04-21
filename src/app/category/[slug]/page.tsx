@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
 import { CategoryPageView } from '@/features/hobbyfind/components/category-page';
 import {
   CATEGORY_META,
@@ -38,5 +39,17 @@ export default async function CategoryRoutePage({
     notFound();
   }
 
-  return <CategoryPageView category={slug} />;
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-white">
+          <div className="mx-auto max-w-7xl px-6 py-16 text-neutral-600 md:px-10 lg:px-20 xl:px-24">
+            불러오는 중...
+          </div>
+        </div>
+      }
+    >
+      <CategoryPageView category={slug} />
+    </Suspense>
+  );
 }
