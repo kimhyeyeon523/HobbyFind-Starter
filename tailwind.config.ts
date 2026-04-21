@@ -14,6 +14,25 @@ const config = {
     },
     extend: {
       colors: {
+        // docs/design.md — HobbyFind palette (Airbnb-inspired)
+        brand: {
+          DEFAULT: '#FF385C',
+          foreground: '#FFFFFF',
+        },
+        white: '#FFFFFF',
+        neutral: {
+          50: '#F7F7F7',
+          100: '#EBEBEB',
+          200: '#DDDDDD',
+          300: '#C4C4C4',
+          400: '#A0A0A0',
+          500: '#878787',
+          600: '#717171',
+          700: '#5C5C5C',
+          800: '#3D3D3D',
+          900: '#222222',
+          950: '#141414',
+        },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
